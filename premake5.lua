@@ -1,11 +1,11 @@
 workspace("FruitGame")
 	configurations({ "Debug", "Release" })
-	platforms({ "Windows", "Linux" })
 
 project("FruitGame")
 	kind("WindowedApp")
 	language("C")
 	targetdir("build/%{cfg.buildcfg}")
+	includedirs { "include" }
 
 	files({ "src/**.c", "include/**.h" })
 	links({ "raylib" })
