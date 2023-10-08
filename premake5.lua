@@ -10,10 +10,13 @@ project("FruitGame")
 	files({ "src/**.c", "include/**.h" })
 	links({ "raylib" })
 
-filter("configurations:Debug")
-	defines({ "DEBUG" })
-	symbols("On")
+	postbuildcommands { "{COPYDIR} assets build/%{cfg.buildcfg}/"}
 
-filter("configurations:Release")
-	defines({ "NDEBUG" })
-	optimize("On")
+	filter("configurations:Debug")
+		defines({ "DEBUG" })
+		symbols("On")
+
+	filter("configurations:Release")
+		defines({ "NDEBUG" })
+		optimize("On")
+
