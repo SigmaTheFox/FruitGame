@@ -1,22 +1,30 @@
 workspace("FruitGame")
-	configurations({ "Debug", "Release" })
+	configurations { "Debug", "Release" }
 
 project("FruitGame")
-	kind("WindowedApp")
 	language("C")
 	targetdir("build/%{cfg.buildcfg}")
-	includedirs { "include" }
+	includedirs { "include/" }
+	libdirs { "lib/" }
 
 	files({ "src/**.c", "include/**.h" })
-	links({ "raylib" })
 
 	postbuildcommands { "{COPYDIR} assets build/%{cfg.buildcfg}/"}
+
+	filter("system:windows")
+		kind("ConsoleApp")
+		links { "raylib", "winmm"}
+
+	filter("system:linux")
+		kind("WindowedApp")
+		links { "raylib" }
 
 	filter("configurations:Debug")
 		defines({ "DEBUG" })
 		symbols("On")
+		architecture "x86_64"
 
 	filter("configurations:Release")
 		defines({ "NDEBUG" })
 		optimize("On")
-
+		architecture "x86_64"

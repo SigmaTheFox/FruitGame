@@ -4,3 +4,12 @@ build/
 obj/
 *.make
 compile_commands.json
+CppProperties.json
+FruitGame/
+x64
+.vs
+FruitGame.*
+/include/raylib.h
+/include/raymath.h
+/include/rlgl.h
+/lib
