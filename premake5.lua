@@ -9,7 +9,7 @@ project("FruitGame")
 
 	files({ "src/**.c", "include/**.h" })
 
-	postbuildcommands { "{COPYDIR} assets build/%{cfg.buildcfg}/"}
+	postbuildcommands { "{COPYDIR} assets build/%{cfg.buildcfg}/assets/"}
 
 	filter("system:windows")
 		kind("ConsoleApp")
