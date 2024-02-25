@@ -6,8 +6,8 @@
 Font gameFont = {0};
 
 int main() {
-  const int Screen_W = 500;
-  const int Screen_H = 700;
+  const int Screen_W = 800;
+  const int Screen_H = 1000;
 
   const char *Title = "Fruit Game";
 
