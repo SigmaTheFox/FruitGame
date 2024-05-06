@@ -1,8 +1,5 @@
-#ifndef GLOBAL
-#define GLOBAL
+#pragma once
 
 #include <raylib.h>
 
 extern Font gameFont;
-
-#endif // !DEBUG

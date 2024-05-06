@@ -1,6 +1,7 @@
 #include <raylib.h>
 
 #include "global.h"
+#include "fg_drawlayout.h"
 
 // Global variables
 Font gameFont = {0};
@@ -8,8 +9,6 @@ Font gameFont = {0};
 int main() {
   const int Screen_W = 800;
   const int Screen_H = 1000;
-
-  const char *Title = "Fruit Game";
 
   InitWindow(Screen_W, Screen_H, "Fruit Game");
   SetTargetFPS(60);
@@ -20,14 +19,11 @@ int main() {
   gameFont = LoadFontEx("./assets/font/LilitaOne.ttf", 100, 0, 0);
   SetTextureFilter(gameFont.texture, TEXTURE_FILTER_BILINEAR);
 
-  Vector2 titleSize = MeasureTextEx(gameFont, Title, 50.f, .5f);
-  Vector2 titlePos = {(float)Screen_W / 2 - titleSize.x / 2, 10};
-
   while (!WindowShouldClose()) {
     BeginDrawing();
     ClearBackground(backgroundColor);
 
-    DrawTextEx(gameFont, Title, titlePos, 50.f, .5f, BLACK);
+    Rectangle playArea = FG_DrawLayout();
 
     EndDrawing();
   }
